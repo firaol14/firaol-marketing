@@ -13,80 +13,67 @@ export const Comparison: React.FC = () => {
   ];
 
   return (
-    <section id="comparison" className="py-20 md:py-32 bg-brand-bg relative border-t border-white/5">
-      <div className="max-w-[1000px] mx-auto px-2 md:px-6">
+    <section id="comparison" className="py-32 bg-black border-t border-white/5">
+      <div className="max-w-[1200px] mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-10 md:mb-16 px-4"
+          className="mb-20 max-w-3xl"
         >
-          <h2 className="font-display font-bold text-3xl md:text-5xl tracking-tighter mb-4 md:mb-6 text-white">
-            The Better Way to Scale <br /> Your Coaching Business
+          <h2 className="font-display font-bold text-4xl md:text-6xl text-white mb-6 tracking-tight">
+            Why Us?
           </h2>
-          <p className="text-brand-grey text-base md:text-lg max-w-2xl mx-auto">
-            Finally, a Marketing Agency That Actually Feels Like Part of Your Team. Get direct communication, trusted experts, and no middlemen slowing things down.
+          <p className="text-brand-grey text-lg md:text-xl leading-relaxed">
+            A marketing agency that actually feels like part of your team. Direct access, trusted experts, and no middlemen.
           </p>
         </motion.div>
 
-        <div className="overflow-hidden">
+        <div className="overflow-hidden rounded-3xl border border-white/10 bg-[#0A0A0A]">
           <motion.table 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="w-full border-collapse table-fixed"
+            className="w-full border-collapse"
           >
             <thead>
-              <tr>
-                <th className="text-left p-2 md:p-6 text-brand-grey font-medium w-[42%] md:w-2/5"></th>
-                <th className="p-1 md:p-6 text-brand-grey font-bold text-[10px] sm:text-xs md:text-lg align-bottom">Alone</th>
-                <th className="p-1 md:p-6 text-white font-bold text-xs md:text-xl bg-white/5 rounded-t-2xl border-t border-l border-r border-white/10 align-bottom">
-                  <span className="block md:hidden text-brand-blue">Firaol</span>
-                  <span className="hidden md:block text-transparent bg-clip-text bg-gradient-to-r from-brand-blue to-brand-green">
-                    Firaol Marketing
-                  </span>
+              <tr className="bg-white/[0.02]">
+                <th className="text-left p-6 md:p-8 text-brand-grey font-medium w-[40%]">Features</th>
+                <th className="p-6 md:p-8 text-brand-grey font-medium text-sm md:text-base">Alone</th>
+                <th className="p-6 md:p-8 text-white font-bold text-sm md:text-lg bg-white/[0.05] border-x border-white/5">
+                  Firaol Marketing
                 </th>
-                <th className="p-1 md:p-6 text-brand-grey font-bold text-[10px] sm:text-xs md:text-lg align-bottom">
-                  <span className="md:hidden">Others</span>
-                  <span className="hidden md:inline">Other Agencies</span>
-                </th>
+                <th className="p-6 md:p-8 text-brand-grey font-medium text-sm md:text-base">Others</th>
               </tr>
             </thead>
             <tbody>
               {rows.map((row, index) => (
-                <tr key={index} className="border-b border-white/5 last:border-none group hover:bg-white/[0.02] transition-colors">
-                  <td className="p-2 md:p-6 text-white font-medium text-[11px] sm:text-xs md:text-lg leading-tight md:leading-normal">
+                <tr key={index} className="border-t border-white/5 hover:bg-white/[0.02] transition-colors">
+                  <td className="p-6 md:p-8 text-white font-medium text-sm md:text-lg">
                     {row.label}
                   </td>
                   
-                  {/* Alone Column */}
-                  <td className="p-1 md:p-6 text-center align-middle">
+                  <td className="p-6 md:p-8 text-center">
                     {row.alone ? (
-                      <Check className="w-4 h-4 md:w-6 md:h-6 text-brand-green mx-auto" />
+                      <div className="w-8 h-8 rounded-full bg-brand-green/10 flex items-center justify-center mx-auto"><Check className="w-4 h-4 text-brand-green" /></div>
                     ) : (
-                      <X className="w-4 h-4 md:w-6 md:h-6 text-red-500 mx-auto" />
+                      <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center mx-auto"><X className="w-4 h-4 text-white/30" /></div>
                     )}
                   </td>
 
-                  {/* Us Column */}
-                  <td className="p-1 md:p-6 text-center align-middle bg-white/5 border-l border-r border-white/10 relative">
-                     {/* Highlight background for the column bottom */}
-                     {index === rows.length - 1 && (
-                        <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-brand-blue to-brand-green rounded-b-2xl" />
-                     )}
-                    <div className="w-5 h-5 md:w-8 md:h-8 rounded-full bg-brand-green/20 flex items-center justify-center mx-auto">
-                        <Check className="w-3 h-3 md:w-5 md:h-5 text-brand-green" />
+                  <td className="p-6 md:p-8 text-center bg-white/[0.02] border-x border-white/5">
+                    <div className="w-8 h-8 rounded-full bg-brand-green/20 flex items-center justify-center mx-auto">
+                        <Check className="w-5 h-5 text-brand-green" />
                     </div>
                   </td>
 
-                  {/* Other Agencies Column */}
-                  <td className="p-1 md:p-6 text-center align-middle">
+                  <td className="p-6 md:p-8 text-center">
                     {row.other === 'warn' ? (
-                        <span className="text-base md:text-2xl">⚠️</span>
+                        <span className="text-xl opacity-50">⚠️</span>
                     ) : row.other ? (
-                       <Check className="w-4 h-4 md:w-6 md:h-6 text-brand-green mx-auto" />
+                       <div className="w-8 h-8 rounded-full bg-brand-green/10 flex items-center justify-center mx-auto"><Check className="w-4 h-4 text-brand-green" /></div>
                     ) : (
-                      <X className="w-4 h-4 md:w-6 md:h-6 text-red-500 mx-auto" />
+                      <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center mx-auto"><X className="w-4 h-4 text-white/30" /></div>
                     )}
                   </td>
                 </tr>
